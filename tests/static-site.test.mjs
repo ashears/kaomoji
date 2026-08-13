@@ -9,6 +9,7 @@ test("serves a static GitHub Pages entry point", async () => {
   assert.match(html, /<link rel="stylesheet" href="styles\.css\?v=[0-9a-f]+">/);
   assert.match(html, /<script type="module" src="src\/app\.js\?v=[0-9a-f]+"><\/script>/);
   assert.match(html, /Click to copy to clipboard/);
+  assert.match(html, /id="face-filters"/);
   assert.doesNotMatch(html, /Gag Lab|Favorites|Recently copied|search/i);
   assert.doesNotMatch(html, /next|vinext|wrangler|cloudflare/i);
 });

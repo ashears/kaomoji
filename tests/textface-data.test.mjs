@@ -11,3 +11,12 @@ test("stores only copyable face strings", () => {
   assert.ok(data.faces.every((face) => typeof face === "string"));
   assert.ok(data.faces.includes("¯\\_(ツ)_/¯"));
 });
+
+test("categorizes faces by the available filters", () => {
+  assert.deepEqual(data.faceTypes, ["All", "Cute", "Wat", "Happy", "OMG"]);
+  assert.equal(data.faces.length, data.textfaces.length);
+
+  const filterTypes = new Set(data.faceTypes.slice(1));
+  assert.ok(data.textfaces.every(({ face }) => data.faces.includes(face)));
+  assert.ok(data.textfaces.every(({ type }) => filterTypes.has(type)));
+});

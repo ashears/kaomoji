@@ -1,19 +1,51 @@
-import { faces } from "./data.js";
+import { faceTypes, textfaces } from "./data.js";
 
 const nodes = {
   copyStatus: document.querySelector("#copy-status"),
   faces: document.querySelector("#faces"),
+  filters: document.querySelector("#face-filters"),
 };
 
+let activeType = "All";
+
+renderFilters();
 renderFaces();
 
-function renderFaces() {
-  nodes.faces.replaceChildren(...faces.map(renderFaceButton));
+function renderFilters() {
+  nodes.filters.replaceChildren(...faceTypes.map(renderFilterButton));
 }
 
-function renderFaceButton(face) {
+function renderFaces() {
+  const visibleFaces =
+    activeType === "All"
+      ? textfaces
+      : textfaces.filter(({ type }) => type === activeType);
+
+  nodes.faces.replaceChildren(...visibleFaces.map(renderFaceButton));
+}
+
+function renderFilterButton(type) {
+  const button = document.createElement("button");
+  button.className = "filter-button";
+  button.type = "button";
+  button.textContent = type;
+  button.setAttribute("aria-pressed", String(type === activeType));
+  button.addEventListener("click", () => {
+    activeType = type;
+    renderFilters();
+    renderFaces();
+  });
+  return button;
+}
+
+function renderFaceButton({ face }) {
   const button = document.createElement("button");
   button.className = "face-button";
+  if (face.length > 26) {
+    button.classList.add("is-extra-long");
+  } else if (face.length > 16) {
+    button.classList.add("is-long");
+  }
   button.type = "button";
   button.title = "Copy to clipboard";
   button.textContent = face;
