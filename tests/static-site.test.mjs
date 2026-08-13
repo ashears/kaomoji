@@ -8,7 +8,7 @@ test("serves a static GitHub Pages entry point", async () => {
   assert.match(html, /<title>Textfaces<\/title>/);
   assert.match(html, /<link rel="stylesheet" href="styles\.css">/);
   assert.match(html, /<script type="module" src="src\/app\.js"><\/script>/);
-  assert.match(html, /Gag Lab/);
-  assert.match(html, /Favorites/);
+  assert.match(html, /Click to copy to clipboard/);
+  assert.doesNotMatch(html, /Gag Lab|Favorites|Recently copied|search/i);
   assert.doesNotMatch(html, /next|vinext|wrangler|cloudflare/i);
 });
