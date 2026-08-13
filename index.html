@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A fast copy-to-clipboard board for Unicode text faces."
+    >
+    <title>Textfaces</title>
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap header-grid">
+        <div>
+          <p class="kicker">Click. Copy. Paste.</p>
+          <h1>Textfaces</h1>
+          <p class="intro">
+            Searchable Unicode faces for reactions, favorites, and small chat
+            gags.
+          </p>
+        </div>
+        <div id="copy-status" class="copy-status" role="status" aria-live="polite">
+          Click any face to copy it.
+        </div>
+      </div>
+      <div class="wrap controls">
+        <label class="search">
+          <span class="sr-only">Search faces</span>
+          <input id="search" autocomplete="off" placeholder="search shrug, angry, sparkle, lenny...">
+          <span id="result-count">0 faces</span>
+        </label>
+        <nav id="categories" class="categories" aria-label="Categories"></nav>
+      </div>
+    </header>
+
+    <main class="wrap layout">
+      <section>
+        <div id="faces" class="face-grid"></div>
+        <p id="empty-state" class="empty" hidden>
+          (；一_一)<br>No faces matched that search.
+        </p>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Gag Lab</h2>
+            <button id="random-gag" class="ghost" type="button">Random</button>
+          </div>
+          <label class="field">
+            <span>Template</span>
+            <select id="template"></select>
+          </label>
+          <label class="field">
+            <span>Face</span>
+            <select id="gag-face"></select>
+          </label>
+          <label class="field">
+            <span id="level-label">Corruption level: 1</span>
+            <input id="corruption" type="range" min="0" max="4" value="1">
+          </label>
+          <output id="gag-output" class="gag-output"></output>
+          <button id="copy-gag" class="primary" type="button">Copy gag</button>
+        </section>
+
+        <section class="panel">
+          <h2>Favorites</h2>
+          <div id="favorites" class="shelf"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Recently copied</h2>
+          <div id="recent" class="shelf"></div>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>
