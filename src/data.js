@@ -1,4 +1,4 @@
-export const faceTypes = ["All", "Cute", "Wat", "Happy", "OMG"];
+export const faceTypes = ["All", "Cute", "Animals", "Wat", "Happy", "OMG"];
 
 export const textfaces = [
   { face: "( ͡° ͜ʖ ͡°)", type: "Wat" },
@@ -6,6 +6,16 @@ export const textfaces = [
   { face: "ಠ_ಠ", type: "Wat" },
   { face: "ʕ•ᴥ•ʔ", type: "Cute" },
   { face: "༼ つ ◕_◕ ༽つ", type: "Cute" },
+  { face: "ฅ^•ﻌ•^ฅ", type: "Animals" },
+  { face: "V●ᴥ●V", type: "Animals" },
+  { face: "/ᐠ｡ꞈ｡ᐟ\\", type: "Animals" },
+  { face: "₍ᐢ. ̫.ᐢ₎", type: "Animals" },
+  { face: "૮ ・ﻌ・ა", type: "Animals" },
+  { face: "ʕっ•ᴥ•ʔっ", type: "Animals" },
+  { face: "／(･ × ･)＼", type: "Animals" },
+  { face: "Ꮚ˘ ꈊ ˘ Ꮚ", type: "Animals" },
+  { face: "ʚ(｡˃ ᵕ ˂ )ɞ", type: "Animals" },
+  { face: "くコ:彡", type: "Animals" },
   { face: "(╯°□°)╯︵ ┻━┻", type: "OMG" },
   { face: "┬─┬ ノ( ゜-゜ノ)", type: "OMG" },
   { face: "(ง'̀-'́)ง", type: "OMG" },
